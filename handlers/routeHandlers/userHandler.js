@@ -202,6 +202,10 @@ handler._user.put = (requestProperties, callback) => {
                 });
             }
         });
+    } else {
+        callback(400, {
+            error: "Bad Request",
+        });
     }
 };
 
