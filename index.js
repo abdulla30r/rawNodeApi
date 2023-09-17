@@ -1,4 +1,7 @@
 // dependencies
+const server = require("./lib/server");
+const worker = require("./lib/worker");
+
 const http = require("http");
 const { handleReqRes } = require("./helpers/handleReqRes");
 const enviornments = require("./helpers/environment");
@@ -42,22 +45,21 @@ data.delete("test", "newFile", (err, data) => {
 });
 */
 
-// create server
-app.createServer = () => {
-    const server = http.createServer(app.handleReqRes);
-    server.listen(enviornments.port, () => {
-        console.log(`listening to port ${enviornments.port}`);
-    });
+// //send twilio sms
+// sendTwilioSms("01894604524", "hello", (err) => {
+//     console.log(`this is the eror `, err);
+// });
+
+// start the server
+
+app.init = () => {
+    // start the server
+    server.init();
+    // start the workers
+    worker.init();
 };
 
-// handle Request Response
-app.handleReqRes = handleReqRes;
+app.init();
 
-/*
-//send twilio sms
-sendTwilioSms("01894604524", "hello", (err) => {
-    console.log(`this is the eror `, err);
-});
-*/
-// start the server
-app.createServer();
+// export the app
+module.exports = app;
