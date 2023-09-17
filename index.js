@@ -42,8 +42,6 @@ data.delete("test", "newFile", (err, data) => {
 });
 */
 
-
-
 // create server
 app.createServer = () => {
     const server = http.createServer(app.handleReqRes);
@@ -55,10 +53,11 @@ app.createServer = () => {
 // handle Request Response
 app.handleReqRes = handleReqRes;
 
+/*
 //send twilio sms
 sendTwilioSms("01894604524", "hello", (err) => {
     console.log(`this is the eror `, err);
 });
-
+*/
 // start the server
 app.createServer();

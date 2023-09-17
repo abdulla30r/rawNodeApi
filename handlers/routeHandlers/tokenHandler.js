@@ -3,7 +3,7 @@ const data = require("../../lib/data");
 const { hash } = require("../../helpers/utilities");
 const { parseJSON } = require("../../helpers/utilities");
 const { createRandomString } = require("../../helpers/utilities");
-const { user } = require("../../routes");
+const user  = require("../../routes");
 
 // module scaffolding
 const handler = {};
